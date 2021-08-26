@@ -11,8 +11,8 @@ it('renders a search box with a button', () => {
         </Provider>
     );
 
-    expect(getByRole(/entry/)).toBeInTheDocument();
-    expect(getByRole(/pushbutton/)).toBeInTheDocument();
+    expect(getByRole('entry')).toBeInTheDocument();
+    expect(getByRole('pushbutton')).toBeInTheDocument();
 });
 it('lists supported features', () => {
     const {getByRole, getByText} = render(
@@ -21,6 +21,6 @@ it('lists supported features', () => {
         </Provider>
     );
 
-    expect(getByRole(/list/)).toBeInTheDocument();
+    expect(getByRole('list')).toBeInTheDocument();
     expect(getByText(/unterstützt/)).toBeInTheDocument();
 })
