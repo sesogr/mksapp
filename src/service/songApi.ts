@@ -1,28 +1,12 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {components} from "./OpenAPI.schema";
 
-export type SearchResult = {
-    id: number,
-    title?: string,
-    composer?: string,
-    writer?: string,
-    copyright_year?: string,
-    origin?: string,
-}
-export type Song = {
-    id: number,
-    name?: string,
-    copyright_year?: string,
-    copyright_remark?: string,
-    created_on?: string,
-    label?: string,
-    publisher_series?: string,
-    publisher_number?: string,
-    record_number?: string,
-    origin?: string,
-    dedication?: string,
-    review?: string,
-    addition?: string,
-    index_no?: string,
+export type Song = components['schemas']['read-song'];
+export type Person = components['schemas']['read-person'];
+export type SearchResult = Pick<Song, 'id' | 'copyright_year' | 'origin'> & {
+    title?: Song['name'],
+    composer?: Person['name'],
+    writer?: Person['name'],
 }
 export const songApi = createApi({
     reducerPath: 'songApi',
