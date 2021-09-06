@@ -12,97 +12,97 @@ export interface paths {
     /** read 20201217-oeaw-schlager-db */
     get: operations["read_20201217-oeaw-schlager-db"];
   };
-  "/records/mks_city": {
-    /** list mks_city */
-    get: operations["list_mks_city"];
+  "/records/city": {
+    /** list city */
+    get: operations["list_city"];
   };
-  "/records/mks_city/{id}": {
-    /** read mks_city */
-    get: operations["read_mks_city"];
+  "/records/city/{id}": {
+    /** read city */
+    get: operations["read_city"];
   };
-  "/records/mks_collection": {
-    /** list mks_collection */
-    get: operations["list_mks_collection"];
+  "/records/collection": {
+    /** list collection */
+    get: operations["list_collection"];
   };
-  "/records/mks_collection/{id}": {
-    /** read mks_collection */
-    get: operations["read_mks_collection"];
+  "/records/collection/{id}": {
+    /** read collection */
+    get: operations["read_collection"];
   };
-  "/records/mks_genre": {
-    /** list mks_genre */
-    get: operations["list_mks_genre"];
+  "/records/genre": {
+    /** list genre */
+    get: operations["list_genre"];
   };
-  "/records/mks_genre/{id}": {
-    /** read mks_genre */
-    get: operations["read_mks_genre"];
+  "/records/genre/{id}": {
+    /** read genre */
+    get: operations["read_genre"];
   };
-  "/records/mks_person": {
-    /** list mks_person */
-    get: operations["list_mks_person"];
+  "/records/person": {
+    /** list person */
+    get: operations["list_person"];
   };
-  "/records/mks_person/{id}": {
-    /** read mks_person */
-    get: operations["read_mks_person"];
+  "/records/person/{id}": {
+    /** read person */
+    get: operations["read_person"];
   };
-  "/records/mks_publisher": {
-    /** list mks_publisher */
-    get: operations["list_mks_publisher"];
+  "/records/publisher": {
+    /** list publisher */
+    get: operations["list_publisher"];
   };
-  "/records/mks_publisher/{id}": {
-    /** read mks_publisher */
-    get: operations["read_mks_publisher"];
+  "/records/publisher/{id}": {
+    /** read publisher */
+    get: operations["read_publisher"];
   };
-  "/records/mks_song": {
-    /** list mks_song */
-    get: operations["list_mks_song"];
+  "/records/song": {
+    /** list song */
+    get: operations["list_song"];
   };
-  "/records/mks_song/{id}": {
-    /** read mks_song */
-    get: operations["read_mks_song"];
+  "/records/song/{id}": {
+    /** read song */
+    get: operations["read_song"];
   };
-  "/records/mks_source": {
-    /** list mks_source */
-    get: operations["list_mks_source"];
+  "/records/source": {
+    /** list source */
+    get: operations["list_source"];
   };
-  "/records/mks_source/{id}": {
-    /** read mks_source */
-    get: operations["read_mks_source"];
+  "/records/source/{id}": {
+    /** read source */
+    get: operations["read_source"];
   };
-  "/records/mks_x_collection_song": {
-    /** list mks_x_collection_song */
-    get: operations["list_mks_x_collection_song"];
+  "/records/x_collection_song": {
+    /** list x_collection_song */
+    get: operations["list_x_collection_song"];
   };
-  "/records/mks_x_composer_song": {
-    /** list mks_x_composer_song */
-    get: operations["list_mks_x_composer_song"];
+  "/records/x_composer_song": {
+    /** list x_composer_song */
+    get: operations["list_x_composer_song"];
   };
-  "/records/mks_x_cover_artist_song": {
-    /** list mks_x_cover_artist_song */
-    get: operations["list_mks_x_cover_artist_song"];
+  "/records/x_cover_artist_song": {
+    /** list x_cover_artist_song */
+    get: operations["list_x_cover_artist_song"];
   };
-  "/records/mks_x_genre_song": {
-    /** list mks_x_genre_song */
-    get: operations["list_mks_x_genre_song"];
+  "/records/x_genre_song": {
+    /** list x_genre_song */
+    get: operations["list_x_genre_song"];
   };
-  "/records/mks_x_performer_song": {
-    /** list mks_x_performer_song */
-    get: operations["list_mks_x_performer_song"];
+  "/records/x_performer_song": {
+    /** list x_performer_song */
+    get: operations["list_x_performer_song"];
   };
-  "/records/mks_x_publication_place_song": {
-    /** list mks_x_publication_place_song */
-    get: operations["list_mks_x_publication_place_song"];
+  "/records/x_publication_place_song": {
+    /** list x_publication_place_song */
+    get: operations["list_x_publication_place_song"];
   };
-  "/records/mks_x_publisher_song": {
-    /** list mks_x_publisher_song */
-    get: operations["list_mks_x_publisher_song"];
+  "/records/x_publisher_song": {
+    /** list x_publisher_song */
+    get: operations["list_x_publisher_song"];
   };
-  "/records/mks_x_source_song": {
-    /** list mks_x_source_song */
-    get: operations["list_mks_x_source_song"];
+  "/records/x_source_song": {
+    /** list x_source_song */
+    get: operations["list_x_source_song"];
   };
-  "/records/mks_x_writer_song": {
-    /** list mks_x_writer_song */
-    get: operations["list_mks_x_writer_song"];
+  "/records/x_writer_song": {
+    /** list x_writer_song */
+    get: operations["list_x_writer_song"];
   };
   "/status/ping": {
     /** Request API 'ping' status */
@@ -187,62 +187,62 @@ export interface components {
       Quelle?: string | null;
       Index?: string | null;
     };
-    "list-mks_city": {
+    "list-city": {
       results?: number;
       records?: {
         id?: number;
         name?: string | null;
       }[];
     };
-    "read-mks_city": {
+    "read-city": {
       id?: number;
       name?: string | null;
     };
-    "list-mks_collection": {
+    "list-collection": {
       results?: number;
       records?: {
         id?: number;
         name?: string | null;
       }[];
     };
-    "read-mks_collection": {
+    "read-collection": {
       id?: number;
       name?: string | null;
     };
-    "list-mks_genre": {
+    "list-genre": {
       results?: number;
       records?: {
         id?: number;
         name?: string | null;
       }[];
     };
-    "read-mks_genre": {
+    "read-genre": {
       id?: number;
       name?: string | null;
     };
-    "list-mks_person": {
+    "list-person": {
       results?: number;
       records?: {
         id?: number;
         name?: string | null;
       }[];
     };
-    "read-mks_person": {
+    "read-person": {
       id?: number;
       name?: string | null;
     };
-    "list-mks_publisher": {
+    "list-publisher": {
       results?: number;
       records?: {
         id?: number;
         name?: string | null;
       }[];
     };
-    "read-mks_publisher": {
+    "read-publisher": {
       id?: number;
       name?: string | null;
     };
-    "list-mks_song": {
+    "list-song": {
       results?: number;
       records?: {
         id?: number;
@@ -261,7 +261,7 @@ export interface components {
         index_no?: string | null;
       }[];
     };
-    "read-mks_song": {
+    "read-song": {
       id?: number;
       name?: string | null;
       copyright_year?: string | null;
@@ -277,18 +277,18 @@ export interface components {
       addition?: string | null;
       index_no?: string | null;
     };
-    "list-mks_source": {
+    "list-source": {
       results?: number;
       records?: {
         id?: number;
         name?: string | null;
       }[];
     };
-    "read-mks_source": {
+    "read-source": {
       id?: number;
       name?: string | null;
     };
-    "list-mks_x_collection_song": {
+    "list-x_collection_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -297,7 +297,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_composer_song": {
+    "list-x_composer_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -306,7 +306,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_cover_artist_song": {
+    "list-x_cover_artist_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -315,7 +315,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_genre_song": {
+    "list-x_genre_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -324,7 +324,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_performer_song": {
+    "list-x_performer_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -333,7 +333,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_publication_place_song": {
+    "list-x_publication_place_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -342,7 +342,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_publisher_song": {
+    "list-x_publisher_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -351,7 +351,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_source_song": {
+    "list-x_source_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -360,7 +360,7 @@ export interface components {
         annotation?: string | null;
       }[];
     };
-    "list-mks_x_writer_song": {
+    "list-x_writer_song": {
       results?: number;
       records?: {
         song_id?: number;
@@ -405,142 +405,142 @@ export interface components {
         "application/json": components["schemas"]["read-20201217-oeaw-schlager-db"];
       };
     };
-    /** list of mks_city records */
-    "list-mks_city": {
+    /** list of city records */
+    "list-city": {
       content: {
-        "application/json": components["schemas"]["list-mks_city"];
+        "application/json": components["schemas"]["list-city"];
       };
     };
-    /** single mks_city record */
-    "read-mks_city": {
+    /** single city record */
+    "read-city": {
       content: {
-        "application/json": components["schemas"]["read-mks_city"];
+        "application/json": components["schemas"]["read-city"];
       };
     };
-    /** list of mks_collection records */
-    "list-mks_collection": {
+    /** list of collection records */
+    "list-collection": {
       content: {
-        "application/json": components["schemas"]["list-mks_collection"];
+        "application/json": components["schemas"]["list-collection"];
       };
     };
-    /** single mks_collection record */
-    "read-mks_collection": {
+    /** single collection record */
+    "read-collection": {
       content: {
-        "application/json": components["schemas"]["read-mks_collection"];
+        "application/json": components["schemas"]["read-collection"];
       };
     };
-    /** list of mks_genre records */
-    "list-mks_genre": {
+    /** list of genre records */
+    "list-genre": {
       content: {
-        "application/json": components["schemas"]["list-mks_genre"];
+        "application/json": components["schemas"]["list-genre"];
       };
     };
-    /** single mks_genre record */
-    "read-mks_genre": {
+    /** single genre record */
+    "read-genre": {
       content: {
-        "application/json": components["schemas"]["read-mks_genre"];
+        "application/json": components["schemas"]["read-genre"];
       };
     };
-    /** list of mks_person records */
-    "list-mks_person": {
+    /** list of person records */
+    "list-person": {
       content: {
-        "application/json": components["schemas"]["list-mks_person"];
+        "application/json": components["schemas"]["list-person"];
       };
     };
-    /** single mks_person record */
-    "read-mks_person": {
+    /** single person record */
+    "read-person": {
       content: {
-        "application/json": components["schemas"]["read-mks_person"];
+        "application/json": components["schemas"]["read-person"];
       };
     };
-    /** list of mks_publisher records */
-    "list-mks_publisher": {
+    /** list of publisher records */
+    "list-publisher": {
       content: {
-        "application/json": components["schemas"]["list-mks_publisher"];
+        "application/json": components["schemas"]["list-publisher"];
       };
     };
-    /** single mks_publisher record */
-    "read-mks_publisher": {
+    /** single publisher record */
+    "read-publisher": {
       content: {
-        "application/json": components["schemas"]["read-mks_publisher"];
+        "application/json": components["schemas"]["read-publisher"];
       };
     };
-    /** list of mks_song records */
-    "list-mks_song": {
+    /** list of song records */
+    "list-song": {
       content: {
-        "application/json": components["schemas"]["list-mks_song"];
+        "application/json": components["schemas"]["list-song"];
       };
     };
-    /** single mks_song record */
-    "read-mks_song": {
+    /** single song record */
+    "read-song": {
       content: {
-        "application/json": components["schemas"]["read-mks_song"];
+        "application/json": components["schemas"]["read-song"];
       };
     };
-    /** list of mks_source records */
-    "list-mks_source": {
+    /** list of source records */
+    "list-source": {
       content: {
-        "application/json": components["schemas"]["list-mks_source"];
+        "application/json": components["schemas"]["list-source"];
       };
     };
-    /** single mks_source record */
-    "read-mks_source": {
+    /** single source record */
+    "read-source": {
       content: {
-        "application/json": components["schemas"]["read-mks_source"];
+        "application/json": components["schemas"]["read-source"];
       };
     };
-    /** list of mks_x_collection_song records */
-    "list-mks_x_collection_song": {
+    /** list of x_collection_song records */
+    "list-x_collection_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_collection_song"];
+        "application/json": components["schemas"]["list-x_collection_song"];
       };
     };
-    /** list of mks_x_composer_song records */
-    "list-mks_x_composer_song": {
+    /** list of x_composer_song records */
+    "list-x_composer_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_composer_song"];
+        "application/json": components["schemas"]["list-x_composer_song"];
       };
     };
-    /** list of mks_x_cover_artist_song records */
-    "list-mks_x_cover_artist_song": {
+    /** list of x_cover_artist_song records */
+    "list-x_cover_artist_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_cover_artist_song"];
+        "application/json": components["schemas"]["list-x_cover_artist_song"];
       };
     };
-    /** list of mks_x_genre_song records */
-    "list-mks_x_genre_song": {
+    /** list of x_genre_song records */
+    "list-x_genre_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_genre_song"];
+        "application/json": components["schemas"]["list-x_genre_song"];
       };
     };
-    /** list of mks_x_performer_song records */
-    "list-mks_x_performer_song": {
+    /** list of x_performer_song records */
+    "list-x_performer_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_performer_song"];
+        "application/json": components["schemas"]["list-x_performer_song"];
       };
     };
-    /** list of mks_x_publication_place_song records */
-    "list-mks_x_publication_place_song": {
+    /** list of x_publication_place_song records */
+    "list-x_publication_place_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_publication_place_song"];
+        "application/json": components["schemas"]["list-x_publication_place_song"];
       };
     };
-    /** list of mks_x_publisher_song records */
-    "list-mks_x_publisher_song": {
+    /** list of x_publisher_song records */
+    "list-x_publisher_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_publisher_song"];
+        "application/json": components["schemas"]["list-x_publisher_song"];
       };
     };
-    /** list of mks_x_source_song records */
-    "list-mks_x_source_song": {
+    /** list of x_source_song records */
+    "list-x_source_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_source_song"];
+        "application/json": components["schemas"]["list-x_source_song"];
       };
     };
-    /** list of mks_x_writer_song records */
-    "list-mks_x_writer_song": {
+    /** list of x_writer_song records */
+    "list-x_writer_song": {
       content: {
-        "application/json": components["schemas"]["list-mks_x_writer_song"];
+        "application/json": components["schemas"]["list-x_writer_song"];
       };
     };
     /** ping status record */
@@ -615,8 +615,8 @@ export interface operations {
       200: components["responses"]["read-20201217-oeaw-schlager-db"];
     };
   };
-  /** list mks_city */
-  list_mks_city: {
+  /** list city */
+  list_city: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -636,11 +636,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_city"];
+      200: components["responses"]["list-city"];
     };
   };
-  /** read mks_city */
-  read_mks_city: {
+  /** read city */
+  read_city: {
     parameters: {
       path: {
         /** primary key value */
@@ -656,11 +656,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["read-mks_city"];
+      200: components["responses"]["read-city"];
     };
   };
-  /** list mks_collection */
-  list_mks_collection: {
+  /** list collection */
+  list_collection: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -680,11 +680,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_collection"];
+      200: components["responses"]["list-collection"];
     };
   };
-  /** read mks_collection */
-  read_mks_collection: {
+  /** read collection */
+  read_collection: {
     parameters: {
       path: {
         /** primary key value */
@@ -700,11 +700,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["read-mks_collection"];
+      200: components["responses"]["read-collection"];
     };
   };
-  /** list mks_genre */
-  list_mks_genre: {
+  /** list genre */
+  list_genre: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -724,11 +724,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_genre"];
+      200: components["responses"]["list-genre"];
     };
   };
-  /** read mks_genre */
-  read_mks_genre: {
+  /** read genre */
+  read_genre: {
     parameters: {
       path: {
         /** primary key value */
@@ -744,11 +744,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["read-mks_genre"];
+      200: components["responses"]["read-genre"];
     };
   };
-  /** list mks_person */
-  list_mks_person: {
+  /** list person */
+  list_person: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -768,11 +768,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_person"];
+      200: components["responses"]["list-person"];
     };
   };
-  /** read mks_person */
-  read_mks_person: {
+  /** read person */
+  read_person: {
     parameters: {
       path: {
         /** primary key value */
@@ -788,11 +788,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["read-mks_person"];
+      200: components["responses"]["read-person"];
     };
   };
-  /** list mks_publisher */
-  list_mks_publisher: {
+  /** list publisher */
+  list_publisher: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -812,11 +812,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_publisher"];
+      200: components["responses"]["list-publisher"];
     };
   };
-  /** read mks_publisher */
-  read_mks_publisher: {
+  /** read publisher */
+  read_publisher: {
     parameters: {
       path: {
         /** primary key value */
@@ -832,11 +832,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["read-mks_publisher"];
+      200: components["responses"]["read-publisher"];
     };
   };
-  /** list mks_song */
-  list_mks_song: {
+  /** list song */
+  list_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -856,11 +856,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_song"];
+      200: components["responses"]["list-song"];
     };
   };
-  /** read mks_song */
-  read_mks_song: {
+  /** read song */
+  read_song: {
     parameters: {
       path: {
         /** primary key value */
@@ -876,11 +876,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["read-mks_song"];
+      200: components["responses"]["read-song"];
     };
   };
-  /** list mks_source */
-  list_mks_source: {
+  /** list source */
+  list_source: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -900,11 +900,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_source"];
+      200: components["responses"]["list-source"];
     };
   };
-  /** read mks_source */
-  read_mks_source: {
+  /** read source */
+  read_source: {
     parameters: {
       path: {
         /** primary key value */
@@ -920,11 +920,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["read-mks_source"];
+      200: components["responses"]["read-source"];
     };
   };
-  /** list mks_x_collection_song */
-  list_mks_x_collection_song: {
+  /** list x_collection_song */
+  list_x_collection_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -944,11 +944,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_collection_song"];
+      200: components["responses"]["list-x_collection_song"];
     };
   };
-  /** list mks_x_composer_song */
-  list_mks_x_composer_song: {
+  /** list x_composer_song */
+  list_x_composer_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -968,11 +968,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_composer_song"];
+      200: components["responses"]["list-x_composer_song"];
     };
   };
-  /** list mks_x_cover_artist_song */
-  list_mks_x_cover_artist_song: {
+  /** list x_cover_artist_song */
+  list_x_cover_artist_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -992,11 +992,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_cover_artist_song"];
+      200: components["responses"]["list-x_cover_artist_song"];
     };
   };
-  /** list mks_x_genre_song */
-  list_mks_x_genre_song: {
+  /** list x_genre_song */
+  list_x_genre_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -1016,11 +1016,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_genre_song"];
+      200: components["responses"]["list-x_genre_song"];
     };
   };
-  /** list mks_x_performer_song */
-  list_mks_x_performer_song: {
+  /** list x_performer_song */
+  list_x_performer_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -1040,11 +1040,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_performer_song"];
+      200: components["responses"]["list-x_performer_song"];
     };
   };
-  /** list mks_x_publication_place_song */
-  list_mks_x_publication_place_song: {
+  /** list x_publication_place_song */
+  list_x_publication_place_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -1064,11 +1064,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_publication_place_song"];
+      200: components["responses"]["list-x_publication_place_song"];
     };
   };
-  /** list mks_x_publisher_song */
-  list_mks_x_publisher_song: {
+  /** list x_publisher_song */
+  list_x_publisher_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -1088,11 +1088,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_publisher_song"];
+      200: components["responses"]["list-x_publisher_song"];
     };
   };
-  /** list mks_x_source_song */
-  list_mks_x_source_song: {
+  /** list x_source_song */
+  list_x_source_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -1112,11 +1112,11 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_source_song"];
+      200: components["responses"]["list-x_source_song"];
     };
   };
-  /** list mks_x_writer_song */
-  list_mks_x_writer_song: {
+  /** list x_writer_song */
+  list_x_writer_song: {
     parameters: {
       query: {
         /** Filters to be applied. Each filter consists of a column, an operator and a value (comma separated). Example: id,eq,1 */
@@ -1136,7 +1136,7 @@ export interface operations {
       };
     };
     responses: {
-      200: components["responses"]["list-mks_x_writer_song"];
+      200: components["responses"]["list-x_writer_song"];
     };
   };
   /** Request API 'ping' status */
