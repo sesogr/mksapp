@@ -2,16 +2,43 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {components} from "./OpenAPI.schema";
 
 export type Song = components['schemas']['read-song'];
+export type CollectionReference =
+    Omit<NonNullable<components['schemas']['list-x_collection_song']['records']>[number], 'collection_id'>
+    & { collection_id: NonNullable<components['schemas']['read-collection']> };
+export type ComposerReference =
+    Omit<NonNullable<components['schemas']['list-x_composer_song']['records']>[number], 'composer_id'>
+    & { composer_id: NonNullable<components['schemas']['read-person']> };
+export type CoverArtistReference =
+    Omit<NonNullable<components['schemas']['list-x_cover_artist_song']['records']>[number], 'cover_artist_id'>
+    & { cover_artist_id: NonNullable<components['schemas']['read-person']> };
+export type GenreReference =
+    Omit<NonNullable<components['schemas']['list-x_genre_song']['records']>[number], 'genre_id'>
+    & { genre_id: NonNullable<components['schemas']['read-genre']> };
+export type PerformerReference =
+    Omit<NonNullable<components['schemas']['list-x_performer_song']['records']>[number], 'performer_id'>
+    & { performer_id: NonNullable<components['schemas']['read-person']> };
+export type PublicationPlaceReference =
+    Omit<NonNullable<components['schemas']['list-x_publication_place_song']['records']>[number], 'publication_place_id'>
+    & { publication_place_id: NonNullable<components['schemas']['read-city']> };
+export type PublisherReference =
+    Omit<NonNullable<components['schemas']['list-x_publisher_song']['records']>[number], 'publisher_id'>
+    & { publisher_id: NonNullable<components['schemas']['read-publisher']> };
+export type SourceReference =
+    Omit<NonNullable<components['schemas']['list-x_source_song']['records']>[number], 'source_id'>
+    & { source_id: NonNullable<components['schemas']['read-source']> };
+export type WriterReference =
+    Omit<NonNullable<components['schemas']['list-x_writer_song']['records']>[number], 'writer_id'>
+    & { writer_id: NonNullable<components['schemas']['read-person']> };
 export type FullSong = Song & {
-    mks_x_collection_song?: Omit<NonNullable<components['schemas']['list-x_collection_song']['records']>[number], 'collection_id'>[],
-    mks_x_composer_song?: Omit<NonNullable<components['schemas']['list-x_composer_song']['records']>[number], 'composer_id'>[],
-    mks_x_cover_artist_song?: Omit<NonNullable<components['schemas']['list-x_cover_artist_song']['records']>[number], 'cover_artist_id'>[],
-    mks_x_genre_song?: Omit<NonNullable<components['schemas']['list-x_genre_song']['records']>[number], 'genre_id'>[],
-    mks_x_performer_song?: Omit<NonNullable<components['schemas']['list-x_performer_song']['records']>[number], 'performer_id'>[],
-    mks_x_publication_place_song?: Omit<NonNullable<components['schemas']['list-x_publication_place_song']['records']>[number], 'publication_place_id'>[],
-    mks_x_publisher_song?: Omit<NonNullable<components['schemas']['list-x_publisher_song']['records']>[number], 'publisher_id'>[],
-    mks_x_source_song?: Omit<NonNullable<components['schemas']['list-x_source_song']['records']>[number], 'source_id'>[],
-    mks_x_writer_song?: Omit<NonNullable<components['schemas']['list-x_writer_song']['records']>[number], 'writer_id'>[],
+    mks_x_collection_song?: CollectionReference[],
+    mks_x_composer_song?: ComposerReference[],
+    mks_x_cover_artist_song?: CoverArtistReference[],
+    mks_x_genre_song?: GenreReference[],
+    mks_x_performer_song?: PerformerReference[],
+    mks_x_publication_place_song?: PublicationPlaceReference[],
+    mks_x_publisher_song?: PublisherReference[],
+    mks_x_source_song?: SourceReference[],
+    mks_x_writer_song?: WriterReference[],
 };
 export type Person = components['schemas']['read-person'];
 export type SearchMatch = Pick<Song, 'id' | 'copyright_year' | 'origin'> & {
@@ -26,10 +53,32 @@ export const songApi = createApi({
     reducerPath: 'songApi',
     baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:8081/'}),
     endpoints: (builder) => ({
+        getCollectionBySongId: builder.query<{ records: CollectionReference[] }, number>({query: (id) => `records/x_collection_song/?filter=song_id,eq,${id}&join=collection`}),
+        getComposerBySongId: builder.query<{ records: ComposerReference[] }, number>({query: (id) => `records/x_composer_song/?filter=song_id,eq,${id}&join=person`}),
+        getCoverArtistBySongId: builder.query<{ records: CoverArtistReference[] }, number>({query: (id) => `records/x_cover_artist_song/?filter=song_id,eq,${id}&join=person`}),
+        getGenreBySongId: builder.query<{ records: GenreReference[] }, number>({query: (id) => `records/x_genre_song/?filter=song_id,eq,${id}&join=genre`}),
+        getPerformerBySongId: builder.query<{ records: PerformerReference[] }, number>({query: (id) => `records/x_performer_song/?filter=song_id,eq,${id}&join=person`}),
+        getPublicationPlaceBySongId: builder.query<{ records: PublicationPlaceReference[] }, number>({query: (id) => `records/x_publication_place_song/?filter=song_id,eq,${id}&join=city`}),
+        getPublisherBySongId: builder.query<{ records: PublisherReference[] }, number>({query: (id) => `records/x_publisher_song/?filter=song_id,eq,${id}&join=publisher`}),
+        getSourceBySongId: builder.query<{ records: SourceReference[] }, number>({query: (id) => `records/x_source_song/?filter=song_id,eq,${id}&join=source`}),
+        getWriterBySongId: builder.query<{ records: WriterReference[] }, number>({query: (id) => `records/x_writer_song/?filter=song_id,eq,${id}&join=person`}),
         getFullSongById: builder.query<Song, number>({query: (id) => `records/song/${id}?${joins}`}),
         getSongById: builder.query<Song, number>({query: (id) => `records/song/${id}`}),
-        search: builder.query<{records: SearchMatch[]}, string>({query: (expr) => `search?q=${expr}`}),
+        search: builder.query<{ records: SearchMatch[] }, string>({query: (expr) => `search?q=${expr}`}),
     })
 });
 
-export const {useGetFullSongByIdQuery, useGetSongByIdQuery, useSearchQuery} = songApi;
+export const {
+    useGetCollectionBySongIdQuery,
+    useGetComposerBySongIdQuery,
+    useGetCoverArtistBySongIdQuery,
+    useGetGenreBySongIdQuery,
+    useGetPerformerBySongIdQuery,
+    useGetPublicationPlaceBySongIdQuery,
+    useGetPublisherBySongIdQuery,
+    useGetSourceBySongIdQuery,
+    useGetWriterBySongIdQuery,
+    useGetFullSongByIdQuery,
+    useGetSongByIdQuery,
+    useSearchQuery
+} = songApi;
