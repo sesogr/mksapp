@@ -1,3 +1,4 @@
+import {Tag} from "antd";
 import React, {FC} from "react";
 import {
     useGetCollectionBySongIdQuery,
@@ -35,7 +36,13 @@ export const SongDetail: FC<SongDetailProps> = ({type, songId, fallback}) => {
         writer: useGetWriterBySongIdQuery(songId || 0, {skip: type !== 'writer'})
     };
     return <>{
-        (data[type].data?.records as Array<any> | undefined)?.map((r) => r[`${type}_id`].name as string)
+        (data[type].data?.records as Array<any> | undefined)
+            ?.flatMap((r) => [
+                r[`${type}_id`].name as string,
+                r.annotation && <Tag>{r.annotation}</Tag>,
+                <br/>
+            ])
+            .slice(0, -1)
         || fallback
         || ''
     }</>;
