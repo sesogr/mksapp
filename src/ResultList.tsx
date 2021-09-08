@@ -1,20 +1,30 @@
 import React, {FC} from "react";
-import {useSearchQuery} from "./service/songApi";
-import {Alert, List, Spin} from "antd";
-
-const {Item} = List;
+import {SearchMatch, useSearchQuery} from "./service/songApi";
+import {Result, Table} from "antd";
+import {SongDetail} from "./SongDetail";
 
 type ResultListProps = { search: string };
 export const ResultList: FC<ResultListProps> = ({search}) => {
     const {data, error, isFetching} = useSearchQuery(search);
-    return <Spin spinning={isFetching}>
-        {error
-            ? <Alert message='Fehler beim Abruf vom Server' description={JSON.stringify(error)} type="error"/>
-            : <List>{
-                data?.records.length
-                    ? data?.records.map((i) => <Item>:{i.title} ({i.composer})</Item>)
-                    : null
-            }</List>
-        }
-    </Spin>;
+    return error
+        ? <Result status='error' title='Fehler beim Abruf vom Server' extra={<pre>{JSON.stringify(error)}</pre>}/>
+        : <Table<SearchMatch>
+            columns={[
+                {title: 'Titel', dataIndex: 'title'},
+                {
+                    title: 'Komponist*innen',
+                    dataIndex: 'composer',
+                    render: (value, {id}) => <SongDetail songId={id} type='composer' fallback={value}/>
+                },
+                {
+                    title: 'Texter*innen',
+                    dataIndex: 'writer',
+                    render: (value, {id}) => <SongDetail songId={id} type='writer' fallback={value}/>
+                },
+                {title: 'Copyright (Jahr)', dataIndex: 'copyright_year'},
+                {title: 'Herkunft', dataIndex: 'origin'},
+            ]}
+            dataSource={data?.records}
+            loading={isFetching}
+        />
 };
