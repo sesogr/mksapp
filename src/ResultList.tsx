@@ -3,8 +3,11 @@ import {SearchMatch, useSearchQuery} from "./service/songApi";
 import {Result, Table} from "antd";
 import {SongDetail} from "./SongDetail";
 
-type ResultListProps = { search: string };
-export const ResultList: FC<ResultListProps> = ({search}) => {
+type ResultListProps = {
+    search: string,
+    onSelect?: (result: SearchMatch) => void,
+};
+export const ResultList: FC<ResultListProps> = ({search, onSelect}) => {
     const {data, error, isFetching} = useSearchQuery(search);
     return error
         ? <Result status='error' title='Fehler beim Abruf vom Server' extra={<pre>{JSON.stringify(error)}</pre>}/>
@@ -26,5 +29,7 @@ export const ResultList: FC<ResultListProps> = ({search}) => {
             ]}
             dataSource={data?.records}
             loading={isFetching}
+            onRow={(match: SearchMatch) => ({onClick: () => onSelect?.(match)})}
+            size='small'
         />
 };
