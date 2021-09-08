@@ -15,12 +15,12 @@ export const UsageNotes: FC = () => <>
             <Text keyboard>Frühling <Text strong>-Wien</Text></Text>
         </li>
         {/*<li>
-                            Bereiche mit Zwei- oder Dreipunkt-Ellipse (../...), z. B.
-                            <Text keyboard>Mond <Text strong>1927..1928</Text></Text>
-                        </li>*/}
+            Bereiche mit Zwei- oder Dreipunkt-Ellipse (../...), z. B.
+            <Text keyboard>Mond <Text strong>1927..1928</Text></Text>
+        </li>*/}
         {/*<li>
-                            automatische Umschaltung auf ODER-Verknüpfung,
-                            wenn UND-Kombination der Stichwörter/Phrasen erfolglos
-                        </li>*/}
+            automatische Umschaltung auf ODER-Verknüpfung,
+            wenn UND-Kombination der Stichwörter/Phrasen erfolglos
+        </li>*/}
     </ul>
 </>;
