@@ -14,12 +14,10 @@ export type FullSong = Song & {
     mks_x_writer_song?: Omit<NonNullable<components['schemas']['list-x_writer_song']['records']>[number], 'writer_id'>[],
 };
 export type Person = components['schemas']['read-person'];
-export type SearchResult = {
-    records: (Pick<Song, 'id' | 'copyright_year' | 'origin'> & {
-        title?: Song['name'],
-        composer?: Person['name'],
-        writer?: Person['name'],
-    })[]
+export type SearchMatch = Pick<Song, 'id' | 'copyright_year' | 'origin'> & {
+    title?: Song['name'],
+    composer?: Person['name'],
+    writer?: Person['name'],
 };
 const joins = 'join=x_collection_song,collection&join=x_composer_song,person&join=x_cover_artist_song,person&' +
     'join=x_genre_song,genre&join=x_performer_song,person&join=x_publication_place_song,city&' +
@@ -30,7 +28,7 @@ export const songApi = createApi({
     endpoints: (builder) => ({
         getFullSongById: builder.query<Song, number>({query: (id) => `records/song/${id}?${joins}`}),
         getSongById: builder.query<Song, number>({query: (id) => `records/song/${id}`}),
-        search: builder.query<SearchResult, string>({query: (expr) => `search?q=${expr}`}),
+        search: builder.query<{records: SearchMatch[]}, string>({query: (expr) => `search?q=${expr}`}),
     })
 });
 
