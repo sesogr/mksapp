@@ -1,10 +1,8 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import {songApi} from "../service/songApi";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     [songApi.reducerPath]: songApi.reducer,
   },
 });
