@@ -2,6 +2,23 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {components} from "./OpenAPI.schema";
 
 export type Song = components['schemas']['read-song'];
+export type AnyReferenceParent = {
+    collection_id?: NonNullable<components['schemas']['read-collection']>,
+    composer_id?: NonNullable<components['schemas']['read-person']>,
+    cover_artist_id?: NonNullable<components['schemas']['read-person']>,
+    genre_id?: NonNullable<components['schemas']['read-genre']>,
+    performer_id?: NonNullable<components['schemas']['read-person']>,
+    publication_place_id?: NonNullable<components['schemas']['read-city']>,
+    publisher_id?: NonNullable<components['schemas']['read-publisher']>,
+    source_id?: NonNullable<components['schemas']['read-source']>,
+    writer_id?: NonNullable<components['schemas']['read-person']>
+};
+type CollectionListSchemaName = 'list-x_collection_song' | 'list-x_composer_song' | 'list-x_cover_artist_song'
+    | 'list-x_genre_song' | 'list-x_performer_song' | 'list-x_publication_place_song'
+    | 'list-x_publisher_song' | 'list-x_source_song' | 'list-x_writer_song';
+export type AnyReference =
+    Omit<NonNullable<components['schemas'][CollectionListSchemaName]['records']>[number], 'collection_id'>
+    & AnyReferenceParent;
 export type CollectionReference =
     Omit<NonNullable<components['schemas']['list-x_collection_song']['records']>[number], 'collection_id'>
     & { collection_id: NonNullable<components['schemas']['read-collection']> };
@@ -41,7 +58,8 @@ export type FullSong = Song & {
     mks_x_writer_song?: WriterReference[],
 };
 export type Person = components['schemas']['read-person'];
-export type SearchMatch = Pick<Song, 'id' | 'copyright_year' | 'origin'> & {
+export type SearchMatch = Pick<Song, 'copyright_year' | 'origin'> & {
+    id: NonNullable<Song['id']>,
     title?: Song['name'],
     composer?: Person['name'],
     writer?: Person['name'],
@@ -62,7 +80,7 @@ export const songApi = createApi({
         getPublisherBySongId: builder.query<{ records: PublisherReference[] }, number>({query: (id) => `records/x_publisher_song/?filter=song_id,eq,${id}&join=publisher`}),
         getSourceBySongId: builder.query<{ records: SourceReference[] }, number>({query: (id) => `records/x_source_song/?filter=song_id,eq,${id}&join=source`}),
         getWriterBySongId: builder.query<{ records: WriterReference[] }, number>({query: (id) => `records/x_writer_song/?filter=song_id,eq,${id}&join=person`}),
-        getFullSongById: builder.query<Song, number>({query: (id) => `records/song/${id}?${joins}`}),
+        getFullSongById: builder.query<FullSong, number>({query: (id) => `records/song/${id}?${joins}`}),
         getSongById: builder.query<Song, number>({query: (id) => `records/song/${id}`}),
         search: builder.query<{ records: SearchMatch[] }, string>({query: (expr) => `search?q=${expr}`}),
     })
