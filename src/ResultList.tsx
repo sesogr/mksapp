@@ -4,11 +4,11 @@ import {Result, Table, TableProps} from "antd";
 import {SongDetail} from "./SongDetail";
 
 type ResultListProps = TableProps<SearchMatch> & {
-    search: string,
+    search: Record<string, string> | undefined,
     onSelect?: (result: SearchMatch) => void,
 };
 export const ResultList: FC<ResultListProps> = ({search, onSelect, ...props}) => {
-    const {data, error, isFetching} = useSearchQuery(search);
+    const {data, error, isFetching} = useSearchQuery(search || {}, {skip: !search});
     return error
         ? <Result status='error' title='Fehler beim Abruf vom Server' extra={<pre>{JSON.stringify(error)}</pre>}/>
         : <Table<SearchMatch>

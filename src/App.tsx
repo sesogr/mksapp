@@ -10,7 +10,7 @@ const {Search} = Input;
 
 const App: FC = () => {
     const [fieldValue, setFieldValue] = useState('');
-    const [searchExpression, setSearchExpression] = useState('');
+    const [searchExpression, setSearchExpression] = useState<Record<string, string> | undefined>();
     const [selectedMatch, setSelectedMatch] = useState<SearchMatch | undefined>();
     return <Layout>
         <Layout.Content>
@@ -24,7 +24,7 @@ const App: FC = () => {
                     : <Search
                         allowClear
                         enterButton
-                        onSearch={setSearchExpression}
+                        onSearch={(q) => setSearchExpression({q})}
                         onChange={(event) => setFieldValue(event.target.value)}
                         value={fieldValue}
                     />

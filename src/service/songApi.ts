@@ -82,7 +82,7 @@ export const songApi = createApi({
         getWriterBySongId: builder.query<{ records: WriterReference[] }, number>({query: (id) => `records/x_writer_song/?filter=song_id,eq,${id}&join=person`}),
         getFullSongById: builder.query<FullSong, number>({query: (id) => `records/song/${id}?${joins}`}),
         getSongById: builder.query<Song, number>({query: (id) => `records/song/${id}`}),
-        search: builder.query<{ records: SearchMatch[] }, string>({query: (expr) => `search?q=${expr}`}),
+        search: builder.query<{ records: SearchMatch[] }, Record<string, string>>({query: (expr) => `search?${new URLSearchParams(expr)}`}),
     })
 });
 
