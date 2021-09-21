@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {Typography} from "antd";
-import {EllipsisOutlined} from "@ant-design/icons";
+import {EllipsisOutlined, SearchOutlined} from "@ant-design/icons";
 
 const {Paragraph, Text} = Typography;
 
@@ -29,7 +29,7 @@ export const UsageNotes: FC<UsageNotesProps> = ({extended}) => extended
         <Paragraph>
             Es gibt aber auch eine einzeilige Suche, welche in jeglichen Detailinformationen zu einem Schlager sucht,
             die über die Schaltfläche
-            <Text keyboard>Einzeilige Suche</Text>
+            <Text keyboard><SearchOutlined/> Einzeilige Suche</Text>
             zu erreichen ist.
         </Paragraph>
     </>
