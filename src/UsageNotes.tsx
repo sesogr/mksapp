@@ -24,7 +24,7 @@ export const UsageNotes: FC<UsageNotesProps> = ({extended}) => extended
         </ul>
         <Paragraph>
             Sollte(n) ein oder mehrere Ergebnisse alle Suchbegriffe voll erfüllen, werden nur sie angezeigt.
-            Andernfalls werden alle Ergbnisse die mindestens ein Suchbegriff beinhalten angezeigt.
+            Andernfalls werden alle Ergbnisse die mindestens einen Suchbegriff beinhalten angezeigt.
         </Paragraph>
         <Paragraph>
             Es gibt aber auch eine einzeilige Suche, welche in jeglichen Detailinformationen zu einem Schlager sucht,
@@ -59,7 +59,7 @@ export const UsageNotes: FC<UsageNotesProps> = ({extended}) => extended
         </ul>
         <Paragraph>
             Sollte(n) ein oder mehrere Ergebnisse alle Suchbegriffe voll erfüllen, werden nur sie angezeigt.
-            Andernfalls werden alle Ergbnisse die mindestens ein Suchbegriff beinhalten angezeigt.
+            Andernfalls werden alle Ergbnisse die mindestens einen Suchbegriff beinhalten angezeigt.
         </Paragraph>
         <Paragraph>
             Es gibt aber auch eine Mehrfeld-Suche, die über die Schaltfläche
