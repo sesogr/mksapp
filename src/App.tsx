@@ -68,6 +68,7 @@ const App: FC = () => {
                         <Item name='performer' label='Interpret*innen'><Input/></Item>
                         <Item colon={false} label={[]}>
                             <Button
+                                htmlType='submit'
                                 onClick={() => {
                                     form.validateFields()
                                         .then((values) => Object.keys(values)
