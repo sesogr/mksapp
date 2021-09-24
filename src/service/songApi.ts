@@ -69,7 +69,7 @@ const joins = 'join=x_collection_song,collection&join=x_composer_song,person&joi
     'join=x_publisher_song,publisher&join=x_source_song,source&join=x_writer_song,person';
 export const songApi = createApi({
     reducerPath: 'songApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:8081/'}),
+    baseQuery: fetchBaseQuery({baseUrl: `${window.location.pathname.replace(/\/$/, '')}/api`}),
     endpoints: (builder) => ({
         getCollectionBySongId: builder.query<{ records: CollectionReference[] }, number>({query: (id) => `records/x_collection_song/?filter=song_id,eq,${id}&join=collection`}),
         getComposerBySongId: builder.query<{ records: ComposerReference[] }, number>({query: (id) => `records/x_composer_song/?filter=song_id,eq,${id}&join=person`}),
