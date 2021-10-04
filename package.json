@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build; pushd build; zip -r ../build-$(date -u +%Y%m%dt%H%M%Sz).zip *; popd",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
