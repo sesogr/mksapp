@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import './App.css';
-import {Button, Card, Col, Form, Input, Layout, PageHeader, Row} from "antd";
+import {Button, Card, Checkbox, Col, Form, Input, Layout, PageHeader, Row, Typography} from "antd";
 import {ResultList} from "./ResultList";
 import {UsageNotes} from "./UsageNotes";
 import {SearchMatch} from "./service/songApi";
@@ -13,11 +13,13 @@ const {Item, useForm} = Form;
 const App: FC = () => {
     const [form] = useForm();
     const [extended, setExtended] = useState(false);
+    const [expandToOr, setExpandToOr] = useState(false);
     const [fieldValue, setFieldValue] = useState('');
     const [searchExpression, setSearchExpression] = useState<Record<string, string> | undefined>();
     const [selectedMatch, setSelectedMatch] = useState<SearchMatch | undefined>();
     const toggleSearchMode = () => {
         setExtended((prev) => !prev);
+        setExpandToOr(false);
         setSearchExpression(undefined);
     };
     return <Layout>
@@ -99,8 +101,13 @@ const App: FC = () => {
                 {selectedMatch && <DetailView searchMatch={selectedMatch}/>}
                 {searchExpression && <ResultList
                     onSelect={setSelectedMatch}
-                    search={searchExpression}
+                    search={{...searchExpression, expandToOr: expandToOr ? '1' : '0'}}
                     style={{display: !searchExpression || selectedMatch ? 'none' : ''}}
+                    title={() => (
+                        <Checkbox checked={expandToOr} onChange={() => setExpandToOr(prev => !prev)}>
+                            Suche ausdehnen (<Typography.Text italic>ODER</Typography.Text>-Verknüpfung)
+                        </Checkbox>
+                    )}
                 />}
             </Card>
         </Layout.Content>
