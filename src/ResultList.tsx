@@ -14,7 +14,11 @@ export const ResultList: FC<ResultListProps> = ({search, onSelect, ...props}) =>
         : <Table<SearchMatch>
             {...props}
             columns={[
-                {title: 'Titel', dataIndex: 'title'},
+                {
+                    title: 'Titel',
+                    dataIndex: 'title',
+                    sorter: (a, b) => (a.title ?? '').localeCompare(b.title ?? '')
+                },
                 {
                     title: 'Komponist*innen',
                     dataIndex: 'composer',
@@ -25,7 +29,11 @@ export const ResultList: FC<ResultListProps> = ({search, onSelect, ...props}) =>
                     dataIndex: 'writer',
                     render: (value, {id}) => <SongDetail songId={id} type='writer' fallback={value}/>
                 },
-                {title: 'Copyright (Jahr)', dataIndex: 'copyright_year'},
+                {
+                    title: 'Copyright (Jahr)',
+                    dataIndex: 'copyright_year',
+                    sorter: (a, b) => parseInt(a.copyright_year ?? '0') - parseInt(b.copyright_year ?? '0')
+                },
                 {title: 'Herkunft', dataIndex: 'origin'},
             ]}
             dataSource={data?.records}
